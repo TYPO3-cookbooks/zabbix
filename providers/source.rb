@@ -64,6 +64,7 @@ action :install_server do
         (cd #{source_dir} && ./configure --enable-server --prefix=#{new_resource.install_dir} #{new_resource.configure_options})
         (cd #{source_dir} && make install && touch already_built)
       EOH
+      notifies :restart, "service[zabbix_server]"
     end
     new_resource.updated_by_last_action(true)
   end
@@ -82,6 +83,7 @@ action :install_agent do
       (cd #{source_dir} && ./configure --enable-agent --prefix=#{new_resource.install_dir} #{new_resource.configure_options})
       (cd #{source_dir} && make install && touch already_built)
       EOH
+      notifies :restart, "service[zabbix_agentd]"
     end
     new_resource.updated_by_last_action(true)
   end
