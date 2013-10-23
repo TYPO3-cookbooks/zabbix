@@ -1,4 +1,4 @@
-default['zabbix']['server']['version']  = "2.0.3"
+default['zabbix']['server']['version']  = "2.0.9"
 default['zabbix']['server']['branch']   = "ZABBIX%20Latest%20Stable"
 default['zabbix']['server']['install_method']         = "source"
 default['zabbix']['server']['configure_options']      = [ "--with-libcurl","--with-net-snmp"]
