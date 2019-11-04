@@ -11,7 +11,7 @@ include_recipe "zabbix::common"
 
 case node['platform']
 when "ubuntu","debian"
-  if node['platform'] == "debian" and node["platform_version"] >= "10"
+  if node['platform'] == "debian" and node["platform_version"].to_i >= 10
     packages = %w{ fping libcurl4 libiksemel-dev libiksemel3 libsnmp-dev libiksemel-utils libcurl4-openssl-dev }
   else
     packages = %w{ fping libcurl3 libiksemel-dev libiksemel3 libsnmp-dev libiksemel-utils libcurl4-openssl-dev }
