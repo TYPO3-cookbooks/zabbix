@@ -42,8 +42,10 @@ link node['zabbix']['web_dir'] do
 end
 
 directory "#{node['zabbix']['src_dir']}/zabbix-#{node['zabbix']['server']['version']}/frontends/php/conf" do
-  owner node['apache']['user']
-  group node['apache']['group']
+  owner 'www-data'
+  group 'www-data'
+  #owner node['apache']['user']
+  #group node['apache']['group']
   mode "0755"
   action :create
 end
